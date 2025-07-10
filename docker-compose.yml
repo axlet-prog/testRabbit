@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-app
+    ports:
+      - '8181:8181'
+    depends_on:
+      test-rabbitmq:
+        condition: service_started
+    environment:
+      RABBIT_HOST: test-rabbitmq
+
+  test-rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: rabbitmq
+    ports:
+      - '15673:15672'
+      - '5673:5672'
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    volumes:
+      - ./.docker/data/test-rabbitmq:/var/lib/rabbitmq

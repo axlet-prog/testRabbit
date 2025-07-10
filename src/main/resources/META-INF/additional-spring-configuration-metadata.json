@@ -1,0 +1,8 @@
+{
+    "properties": [
+        {
+            "name": "test-rabbit.client.duration",
+            "type": "java.lang.String",
+            "description": "Description for test-rabbit.client.duration."
+    }
+] }
