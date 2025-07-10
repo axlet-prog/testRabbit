@@ -17,7 +17,7 @@ services:
 
   test-rabbitmq:
     image: rabbitmq:3.12-management
-    container_name: rabbitmq
+    container_name: test-rabbitmq
     ports:
       - '15673:15672'
       - '5673:5672'
