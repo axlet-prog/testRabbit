@@ -11,6 +11,9 @@ services:
         condition: service_started
     environment:
       RABBIT_HOST: test-rabbitmq
+      RABBIT_PORT: 5672
+      RABBIT_USERNAME: admin
+      RABBIT_PASSWORD: admin
 
   test-rabbitmq:
     image: rabbitmq:3.12-management
